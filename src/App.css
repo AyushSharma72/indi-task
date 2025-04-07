@@ -1,119 +1,63 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.header {
-  background-color: #222222;
-  color: white;
-  padding: 20px;
+.comment-thread {
+  padding: 1rem;
+  max-width: 600px;
+  margin: auto;
+  font-family: sans-serif;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  width: 4%;
-}
-.nav-links {
-  width: 30%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.nav-links a:hover {
-  text-decoration: underline;
-}
-
-.main {
-  background-color: #f9f9f9;
-  display: flex;
- min-height:75.3vh;
+  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 10px 0px;
-}
-.section {
-  width: 100%;
-  display: flex;
-  margin-top: 10px;
-  justify-content: space-around;
-}
-.section_leftDiv {
-  width: 30%;
-  border: 2px solid black;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1dcd9f;
-}
-.section_rightDiv {
-  width: 50%;
-  border: 2px solid black;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1dcd9f;
-}
-.footer {
-  background-color: #222222;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-.footer-links{
-  display: flex;
-  justify-content: center;
+ 
   gap: 10px;
 }
-.footer-links a {
-  color: #aaa;
-  margin: 0 10px;
-  text-decoration: none;
+.comment {
   display: flex;
-  gap:3px;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+.name-and-time {
+  display: flex;
   align-items: center;
+  gap: 10px;
+}
+.name-and-time p {
+  margin: 0;
+  color: gray;
+}
+.like-and-reply {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-color: #ccc;
+  margin-right: 10px;
 }
 
-.footer-links a:hover {
-  color: white;
+.content {
+  background: #f2f2f2;
+  padding: 10px;
+  border-radius: 8px;
+  width: 500px;
 }
 
-@media (min-width: 200px) and (max-width: 1024px) {
-  .section {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  .section_leftDiv,
-  .section_rightDiv {
-    width: 90%;
-  }
-  .nav-links {
-    width: 70%;
-  }
+.reply-btn {
+  background: none;
+  border: none;
+  color: blue;
+  cursor: pointer;
 }
-@media (min-width: 200px) and (max-width: 500px) {
-  .nav-links {
-    font-size: smaller;
-    width: 80%;
-  }
-  .logo {
-   width: 10%;
-  }
-  .footer-links {
-    width: 100%;
-    margin: 0;
-  }
+
+.replies {
+  margin-left: 70px;
+}
+
+.replies {
+  border-left: 2px solid #ccc;
+  margin-left: 2.5rem;
+  padding-left: 1rem;
+  margin-top: 1rem;
 }

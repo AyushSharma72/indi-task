@@ -1,77 +1,88 @@
+import React from "react";
 import "./App.css";
-import { FaLinkedin } from "react-icons/fa";
-import { FaSquareGithub } from "react-icons/fa6";
-import { CiGlobe } from "react-icons/ci";
+import Avatar from "@mui/material/Avatar";
+import { AiOutlineLike } from "react-icons/ai";
 
-function App() {
+const Comment = ({ text, replies, name }) => {
   return (
-    <div className="parent-div">
-      {/* Header */}
-      <header className="header">
-        <img className="logo" src="/indi.png" />
+    <div className="comment-wrapper">
+      {/* comment  */}
+      <div className="comment">
+        {/* avatar  */}
+        <Avatar alt="Remy Sharp" src="/Ayush2.jpg" />
+        <div className="content">
+          {/* name and time  */}
 
-        {/* navbar links  */}
-        <nav className="nav-links">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Contact</a>
-        </nav>
-      </header>
-
-      {/* Main Container */}
-      <main className="main">
-        <h2>This is the main section.</h2>
-        <section className="section">
-          {/* left deiv */}
-          <div className="section_leftDiv">
-            <h2>this is left div</h2>
+          <div className="name-and-time">
+            <strong>{name}</strong> <p>2 hr ago</p>
           </div>
 
-          {/* right div  */}
+          {/* comment text  */}
+          <p>{text}</p>
 
-          <div className="section_rightDiv">
-            <h2>this is right div</h2>
-          </div>
-        </section>
-      </main>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          {/* footer heading  */}
-          <p>This is the footer</p>
-
-          {/* links */}
-          <div className="footer-links">
-            <a
-              href="https://github.com/AyushSharma72"
-              target="
-            _blank"
-            >
-              <FaSquareGithub /> Github
-            </a>{" "}
-            |
-            <a
-              href="https://www.linkedin.com/in/ayush-sharma-a155a8267/"
-              target="
-            _blank"
-            >
-              <FaLinkedin /> Linkedin
-            </a>{" "}
-            |
-            <a
-              href="https://ayush-portfolio-pearl.vercel.app/"
-              target="
-            _blank"
-            >
-              <CiGlobe /> Portfolio
-            </a>
+          {/* like and reply div  */}
+          <div className="like-and-reply">
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <AiOutlineLike /> 10
+            </div>
+            <button className="reply-btn">Reply</button>
           </div>
         </div>
-      </footer>
+      </div>
+
+      {replies && (
+        <div className="replies">
+          {replies.map((reply, index) => (
+            <Comment
+              key={index}
+              text={reply.text}
+              replies={reply.replies}
+              name={reply.name}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default function ThreadedComment() {
+  const comments = [
+    {
+      name: "Ayush Sharma",
+      text: "This is comment number 1",
+      replies: [
+        {
+          name: "rajveer",
+          text: "Reply 1 - to the comment",
+          replies: [
+            { name: "Ayush Sharma", text: "Nested Reply - to reply one" },
+          ],
+        },
+        {
+          name: "rajveer",
+          text: "Reply 2 - to the comment",
+        },
+      ],
+    },
+    {
+      name: "arnab",
+      text: "this is comment number 2",
+      replies: [{ name: "Ayush Sharma", text: "Another reply" }],
+    },
+  ];
+
+  return (
+    <div className="comment-thread">
+      <h2>Comments</h2>
+      {comments.map((comment, index) => (
+        <Comment
+          key={index}
+          text={comment.text}
+          replies={comment.replies}
+          name={comment.name}
+        />
+      ))}
     </div>
   );
 }
-
-export default App;
